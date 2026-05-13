@@ -2,6 +2,9 @@
 
 A complete beginner-friendly full-stack web application for students to manage study tasks and daily attendance. The app uses **HTML, CSS, Vanilla JavaScript, Supabase Authentication, and Supabase PostgreSQL**. There is no Node.js backend, Express server, Firebase, TypeScript, or complex framework, so it can be deployed as a static site on Vercel or Netlify.
 
+##working prototype
+-https://tracademicapp.vercel.app/login.html
+
 ## Features
 
 - Student registration with name, email, and password
