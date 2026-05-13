@@ -93,23 +93,6 @@ http://localhost:5500
 5. Deploy.
 6. Add your deployed URL to Supabase **Authentication → URL Configuration → Site URL**.
 
-## Deploy to Netlify
-
-1. Push this project to GitHub.
-2. Open [Netlify](https://www.netlify.com/) and create a new site from Git.
-3. Leave build command empty.
-4. Leave publish directory as the project root.
-5. Deploy.
-6. Add your deployed URL to Supabase **Authentication → URL Configuration → Site URL**.
-
-## Screenshots
-
-Add screenshots after deployment or local testing:
-
-- Login page
-- Register page
-- Dashboard desktop view
-- Dashboard mobile view
 
 ## Database Tables
 
@@ -142,13 +125,6 @@ Add screenshots after deployment or local testing:
 | user_id | Owner student id |
 | date | Attendance date |
 | status | Present or Absent |
-
-## Customization Ideas
-
-- Add course or subject fields to tasks.
-- Add monthly attendance filters.
-- Add profile editing.
-- Add CSV export for attendance history.
 
 ## License
 
