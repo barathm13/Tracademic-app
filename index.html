@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Student Task & Attendance Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-page">
+  <main class="splash-card" aria-live="polite">
+    <div class="brand-mark">ST</div>
+    <h1>Smart Student Task & Attendance Tracker</h1>
+    <p>Checking your secure session...</p>
+    <div class="loader" aria-hidden="true"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const session = await StudentTracker.auth.getSession();
+        window.location.href = session ? 'dashboard.html' : 'login.html';
+      } catch (error) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

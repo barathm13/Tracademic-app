@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Smart Student Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <a class="mini-brand" href="index.html" aria-label="Smart Student Tracker home">
+      <span class="brand-mark">ST</span>
+      <span>Smart Student Tracker</span>
+    </a>
+
+    <section class="auth-copy">
+      <p class="eyebrow">Welcome back</p>
+      <h1>Login to your dashboard</h1>
+      <p>Manage your study tasks, daily attendance, and productivity in one clean workspace.</p>
+    </section>
+
+    <form id="loginForm" class="form-panel" novalidate>
+      <div id="message" class="message hidden" role="alert"></div>
+
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" placeholder="student@example.com" autocomplete="email" required />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required minlength="6" />
+
+      <button class="btn btn-primary" type="submit">Login</button>
+      <p class="form-link">New student? <a href="register.html">Create an account</a></p>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

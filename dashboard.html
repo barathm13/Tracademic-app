@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Smart Student Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="dashboard-page">
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <header class="navbar">
+    <a class="mini-brand" href="dashboard.html" aria-label="Smart Student Tracker dashboard">
+      <span class="brand-mark">ST</span>
+      <span>Smart Student Tracker</span>
+    </a>
+    <nav class="nav-actions" aria-label="Dashboard actions">
+      <span id="userName" class="user-pill">Student</span>
+      <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle dark mode">🌙</button>
+      <button id="logoutBtn" class="btn btn-danger" type="button">Logout</button>
+    </nav>
+  </header>
+
+  <main class="dashboard-shell">
+    <section class="hero-panel">
+      <div>
+        <p class="eyebrow">Daily progress</p>
+        <h1>Stay on top of tasks and attendance</h1>
+        <p>Track coursework, mark attendance once per day, and monitor progress from a responsive student dashboard.</p>
+      </div>
+      <div class="hero-stat">
+        <span id="todayDate">Today</span>
+        <strong id="heroAttendance">0%</strong>
+        <small>Attendance</small>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Dashboard summary">
+      <article class="stat-card">
+        <span>Total tasks</span>
+        <strong id="totalTasks">0</strong>
+      </article>
+      <article class="stat-card success">
+        <span>Completed</span>
+        <strong id="completedTasks">0</strong>
+      </article>
+      <article class="stat-card warning">
+        <span>Pending</span>
+        <strong id="pendingTasks">0</strong>
+      </article>
+      <article class="stat-card info">
+        <span>Attendance</span>
+        <strong id="attendancePercent">0%</strong>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel task-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Task manager</p>
+            <h2>Add and organize tasks</h2>
+          </div>
+          <div class="filter-row compact">
+            <input id="taskSearch" type="search" placeholder="Search tasks" aria-label="Search tasks" />
+            <select id="taskFilter" aria-label="Filter tasks">
+              <option value="all">All</option>
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <form id="taskForm" class="task-form" novalidate>
+          <input type="hidden" id="taskId" />
+          <div class="form-grid">
+            <div>
+              <label for="taskTitle">Task title</label>
+              <input id="taskTitle" type="text" placeholder="Example: Finish DBMS notes" required />
+            </div>
+            <div>
+              <label for="dueDate">Due date</label>
+              <input id="dueDate" type="date" required />
+            </div>
+          </div>
+          <label for="taskDescription">Description</label>
+          <textarea id="taskDescription" rows="3" placeholder="Add a short task description"></textarea>
+          <div class="button-row">
+            <button id="saveTaskBtn" class="btn btn-primary" type="submit">Add task</button>
+            <button id="cancelEditBtn" class="btn btn-ghost hidden" type="button">Cancel edit</button>
+          </div>
+        </form>
+
+        <div id="taskList" class="task-list" aria-live="polite"></div>
+      </article>
+
+      <aside class="panel progress-panel">
+        <div class="panel-heading stacked">
+          <p class="eyebrow">Visual summary</p>
+          <h2>Completion chart</h2>
+        </div>
+        <div class="donut-wrap">
+          <div id="taskDonut" class="donut" style="--progress: 0;"><span id="taskCompletionPercent">0%</span></div>
+          <p>Task completion rate</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="panel attendance-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Attendance</p>
+          <h2>Mark today's attendance</h2>
+        </div>
+        <div class="button-row">
+          <button id="presentBtn" class="btn btn-success" type="button">Present</button>
+          <button id="absentBtn" class="btn btn-warning" type="button">Absent</button>
+        </div>
+      </div>
+      <p id="attendanceStatus" class="note">You can mark attendance only once per day.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="attendanceTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
